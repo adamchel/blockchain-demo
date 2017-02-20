@@ -5,7 +5,8 @@ function sha256(block, chain) {
 
 function updateState(block, chain) {
   // set the well background red or green for this block
-  if ($('#block'+block+'chain'+chain+'hash').val().substr(0, 4) === '0000') {
+  var diff = $('#block'+block+'chain'+chain+'difficulty').val()
+  if ($('#block'+block+'chain'+chain+'hash').val().substr(0, diff) === '0'.repeat(diff)) {
     $('#block'+block+'chain'+chain+'well').removeClass('well-error').addClass('well-success');
   }
   else {
@@ -32,9 +33,10 @@ function updateChain(block, chain) {
 function mine(block, chain, isChain) {
   var found = false;
   for (var x = 0; x <= 500000 && !found; x++) {
+    var diff = $('#block'+block+'chain'+chain+'difficulty').val()
     $('#block'+block+'chain'+chain+'nonce').val(x);
     $('#block'+block+'chain'+chain+'hash').val(sha256(block, chain));
-    if ($('#block'+block+'chain'+chain+'hash').val().substr(0, 4) === '0000') {
+    if ($('#block'+block+'chain'+chain+'hash').val().substr(0, diff) === '0'.repeat(diff)) {
       found = true;
       if (isChain) {
         updateChain(block, chain);

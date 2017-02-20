@@ -23,10 +23,17 @@ block content
           .col-sm-10
             textarea#block1chain1data.form-control(rows='10', onkeyup='updateHash(1, 1);')
 
+
+        .form-group
+          label.col-sm-2.control-label(for='block1chain1data') Difficulty:
+          .col-sm-10
+            input#block1chain1difficulty.form-control(type='text', value='4', onkeyup='updateHash(1, 1);')
+
         #state.form-group
           label.col-sm-2.control-label(for='block1chain1hash') Hash:
           .col-sm-10
             input#block1chain1hash.form-control(type='text', disabled)
+
 
         .form-group
           .col-sm-2
@@ -44,7 +51,8 @@ block content
     function getText(block, chain) {
       return $('#block'+block+'chain'+chain+'number').val() +
              $('#block'+block+'chain'+chain+'nonce').val() +
-             $('#block'+block+'chain'+chain+'data').val();
+             $('#block'+block+'chain'+chain+'data').val() +
+             $('#block'+block+'chain'+chain+'difficulty').val();
     }
 
     function mineButtonAnimation(block, chain) {
