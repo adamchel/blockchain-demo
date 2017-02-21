@@ -34,6 +34,11 @@
             .input-group-addon -&gt;
             input.form-control(id='block#{block.block}chain#{block.chain}tx#{x}to', type='text', value='#{tx.to}', onkeyup='updateChain(#{block.block}, #{block.chain});')
 
+    .form-group
+      label.col-sm-2.control-label(for='block#{block.block}chain#{block.chain}difficulty') Diff:
+      .col-sm-10
+         input.form-control(id='block#{block.block}chain#{block.chain}difficulty', type='text', value='#{block.difficulty}', onkeyup='updateChain(#{block.block}, #{block.chain});')
+
     #state.form-group
       label.col-sm-2.control-label(for='block#{block.block}chain#{block.chain}previous') Prev:
       .col-sm-10
