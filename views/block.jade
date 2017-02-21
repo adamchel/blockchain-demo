@@ -14,11 +14,6 @@ block content
               input#block1chain1number.form-control(type='text', value='1' onkeyup='updateHash(1, 1);')
 
         .form-group
-          label.col-sm-2.control-label(for='block1chain1nonce') Nonce:
-          .col-sm-10
-             input#block1chain1nonce.form-control(type='text', value='37560', onkeyup='updateHash(1, 1);')
-
-        .form-group
           label.col-sm-2.control-label(for='block1chain1data') Data:
           .col-sm-10
             textarea#block1chain1data.form-control(rows='10', onkeyup='updateHash(1, 1);')
@@ -29,10 +24,15 @@ block content
           .col-sm-10
             input#block1chain1difficulty.form-control(type='text', value='4', onkeyup='updateHash(1, 1);')
 
+        .form-group
+          label.col-sm-2.control-label(for='block1chain1nonce') Nonce:
+          .col-sm-10
+             input#block1chain1nonce.form-control(type='text', value='37560', onkeyup='updateHash(1, 1);')
+
         #state.form-group
           label.col-sm-2.control-label(for='block1chain1hash') Hash:
           .col-sm-10
-            input#block1chain1hash.form-control(type='text', disabled)
+            input#block1chain1hash.form-control.hash-text(type='text', disabled)
 
 
         .form-group
