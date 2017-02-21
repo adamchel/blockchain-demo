@@ -37,6 +37,12 @@ body > .container-fluid {
   background: rgb(250, 220, 220);
 }
 
+.bottom-pad {
+  padding-bottom: 1em;
+}
+
+
+
 .intro-text {
   line-height: 1.5;
 }
