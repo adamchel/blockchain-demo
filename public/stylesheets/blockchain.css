@@ -25,6 +25,10 @@ body > .container-fluid {
   margin: 20px 0;
 }
 
+.row {
+  border-bottom: 5px solid black;
+}
+
 .well-success {
   background: rgb(223, 240, 216);
 }
@@ -35,7 +39,6 @@ body > .container-fluid {
 
 .intro-text {
   line-height: 1.5;
-  padding: 1em 1em;
 }
 
 .hash-text {
