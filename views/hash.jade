@@ -1,12 +1,21 @@
 extends layout
 
 block content
+  script(src='/javascripts/texts.js')
   .container
 
     h1 SHA256 Hash
     .well#well1
       form.form-horizontal
 
+        .form-group
+          .col-sm-2
+          .col-sm-2
+            button#addSentence.form-control.btn.btn-primary Sentence
+          .col-sm-4
+            button#addArticle.form-control.btn.btn-primary NYTimes Article
+          .col-sm-4
+            button#addPlay.form-control.btn.btn-primary Shakespeare Play
         .form-group
           label.col-sm-2.control-label(for='data') Data:
           .col-sm-10
@@ -17,7 +26,7 @@ block content
           .col-sm-8
             input#hash.form-control.hash-text(type='text', font-family='courier', disabled)
           .col-sm-2
-            button(type='button')#addHashButton.form-control.btn.btn-default.glyphicon.glyphicon-plus
+            button#addHashButton.form-control.btn.btn-default.glyphicon.glyphicon-plus
 
     h2 Hashes
     ul#hash-list.list-unstyled.hash-text
@@ -27,15 +36,48 @@ block content
 
       
   script.
+
     function getText(block, chain) {
       return $('#data').val();
     }
 
-    $("#addHashButton").click(function() {
+
+    $("#addHashButton").click(function(e) {
+      e.preventDefault();
       var li = document.createElement("li");
+      
+      /*
+      li.setAttribute("data-toggle", "popover");
+      li.setAttribute("title", "Hash Input");
+      li.setAttribute("data-content", $("#data").val());
+      li.setAttribute("tabindex", 0);
+      li.setAttribute("data-trigger", "focus");
+      li.setAttribute("data-placement", "bottom");
+      */
+
       var newHashVal = document.createTextNode($("#hash").val());
       li.appendChild(newHashVal);
       $("#hash-list").append(li);
+
+      //$("#hash-list>li").popover();
+    });
+
+    $("#addSentence").click(function(e) {
+      e.preventDefault();
+      $("#data").val("This is a sentence.");
+      $("#hash").val(sha256());
+    });
+
+    $("#addArticle").click(function(e) {
+      e.preventDefault();
+      $("#data").val(nytarticle);
+      $("#hash").val(sha256());
+    });
+
+    $("#addPlay").click(function(e) {
+      e.preventDefault();
+      $("#data").val(shakespeareplay);
+      $("#hash").val(sha256());
     });
 
     $("#hash").val(sha256());
