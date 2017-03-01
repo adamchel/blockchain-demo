@@ -51,6 +51,22 @@ body > .container-fluid {
   font-family: "Courier";
 }
 
+#hash-list {
+  margin: 0;
+  padding: 0;
+}
+
+#hash-list li {
+  padding: 12px 8px 12px 40px;
+  transition: 0.2s;
+  text-align: center;
+  background: #eee;
+}
+
+#hash-list li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
 .navbar-inverse {
   color: #ffffff;
   background-image: linear-gradient(to bottom,rgba(0, 129, 204, 1) 0,rgb(7, 101, 156) 100%);

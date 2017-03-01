@@ -14,12 +14,28 @@ block content
 
         .form-group
           label.col-sm-2.control-label(for='hash') Hash:
-          .col-sm-10
+          .col-sm-8
             input#hash.form-control.hash-text(type='text', font-family='courier', disabled)
+          .col-sm-2
+            button(type='button')#addHashButton.form-control.btn.btn-default.glyphicon.glyphicon-plus
 
+    h2 Hashes
+    ul#hash-list.list-unstyled.hash-text
+    br
+    br
+    br
+
+      
   script.
     function getText(block, chain) {
       return $('#data').val();
     }
+
+    $("#addHashButton").click(function() {
+      var li = document.createElement("li");
+      var newHashVal = document.createTextNode($("#hash").val());
+      li.appendChild(newHashVal);
+      $("#hash-list").append(li);
+    });
 
     $("#hash").val(sha256());
