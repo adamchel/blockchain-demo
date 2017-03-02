@@ -41,25 +41,41 @@ block content
       return $('#data').val();
     }
 
-
     $("#addHashButton").click(function(e) {
       e.preventDefault();
       var li = document.createElement("li");
       
-      /*
-      li.setAttribute("data-toggle", "popover");
-      li.setAttribute("title", "Hash Input");
-      li.setAttribute("data-content", $("#data").val());
-      li.setAttribute("tabindex", 0);
-      li.setAttribute("data-trigger", "focus");
-      li.setAttribute("data-placement", "bottom");
-      */
+      collapseId = "collapse" + $("#hash").val()
 
+      var collapsedDiv = document.createElement("div");
+      collapsedDiv.className += " collapse";
+      collapsedDiv.setAttribute("id", collapseId);
+      
+      var inputWell = document.createElement("div");
+      inputWell.className += "well input-well";
+
+      var inputArea = document.createElement("textarea");
+      inputArea.className="form-control";
+      inputArea.setAttribute("disabled", true);
+      inputArea.setAttribute("rows",10);
+      inputArea.value = $("#data").val();
+
+      inputWell.appendChild(inputArea);
+
+      collapsedDiv.appendChild(inputWell);
+
+      li.setAttribute("data-toggle", "collapse");
+      li.setAttribute("data-target", "#" + collapseId);
+      
       var newHashVal = document.createTextNode($("#hash").val());
-      li.appendChild(newHashVal);
-      $("#hash-list").append(li);
 
-      //$("#hash-list>li").popover();
+      li.appendChild(newHashVal);
+      li.appendChild(collapsedDiv);
+      $("#hash-list").append(li);
+      $(".input-well").click(function(e) {
+        e.stopPropagation();
+      })
+
     });
 
     $("#addSentence").click(function(e) {
