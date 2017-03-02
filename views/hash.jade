@@ -45,7 +45,7 @@ block content
       e.preventDefault();
       var li = document.createElement("li");
       
-      collapseId = "collapse" + $("#hash").val()
+      collapseId = "collapse" + Date.now();
 
       var collapsedDiv = document.createElement("div");
       collapsedDiv.className += " collapse";
